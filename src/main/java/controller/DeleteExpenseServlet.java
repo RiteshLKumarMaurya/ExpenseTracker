@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.home_controller.SuccessServlet;
 import model.dao.DeleteExpense;
+import session.Flager;
 
 @WebServlet("/delete-expense")
 public class DeleteExpenseServlet extends HttpServlet {
@@ -19,6 +20,7 @@ public class DeleteExpenseServlet extends HttpServlet {
 		if (id != null) {
 			boolean result = DeleteExpense.deleteNow(id);
 			if(result) {
+				Flager.setFlag(true);
 				//send to the deletion success page
 				resp.sendRedirect("success?title=deletion success!&msg=your expense record successfully deleted.");
 			}

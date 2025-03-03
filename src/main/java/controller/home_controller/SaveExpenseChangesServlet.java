@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.InsertExpenceDetail;
+import session.Flager;
 
 @WebServlet("/save-expense-changes")
 public class SaveExpenseChangesServlet extends HttpServlet{
@@ -30,6 +31,7 @@ public class SaveExpenseChangesServlet extends HttpServlet{
 			// if success then success page
 
 			if(res==true) {
+				Flager.setFlag(true);
 				resp.sendRedirect("success?title=operation success!&msg=your expense detail updated successfully.");
 			}else {
 				resp.sendRedirect("error?title=operation failed!&msg=your expense detail updation failed.");

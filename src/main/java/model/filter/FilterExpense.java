@@ -23,7 +23,7 @@ public class FilterExpense {
 		userName = SessionManagement.getUsername(req);
 		password = SessionManagement.getPassword(req);
 		fetcher = new FetchAllExpense();
-		expenses = fetcher.getAllExpenses(userName, password);
+		expenses = fetcher.getAllExpenses(userName, password,false);
 
 		if (filter_value.equals("date-asc")) {
 			ctr=new ExpenseDateAscComparator();

@@ -15,13 +15,16 @@ import session.SessionManagement;
 
 public class FetchAllExpense {
 	public static List<Expense> commonExpenses;
-
+	
 	// i will be use the filter--> to implement the things known as the Comparable
 	// and the Comparator
 	
-	public List<Expense> getAllExpenses(String username, String password) {
+	public List<Expense> getAllExpenses(String username, String password,boolean flag) {
+		//if flag true--> then need to fetch fresh means again execute the query otherwise not
 		
-		if(commonExpenses!=null) {
+		
+		
+		if(flag!=true&&commonExpenses!=null) {
 			return commonExpenses;
 		}else {
 			

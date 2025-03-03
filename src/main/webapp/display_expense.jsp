@@ -1,3 +1,4 @@
+<%@page import="session.Flager"%>
 <%@page import="model.dao.Expense"%>
 <%@page import="session.SessionManagement"%>
 <%@page import="java.sql.Timestamp"%>
@@ -26,6 +27,7 @@
 				<div style="margin: 2px">
 					<h3>Filter</h3>
 					<select name="filter_value">
+						<option value="" label="choose option">
 						<option value="date-asc" label="date-asc">
 						<option value="date-desc" label="date-desc">
 						<option value="amount-desc" label="amount-desc">
@@ -58,7 +60,7 @@ String date;%>
 
 	FetchAllExpense fetcher = new FetchAllExpense();
 	List<Expense> expenses = fetcher.getAllExpenses(SessionManagement.getUsername(request),
-			SessionManagement.getPassword(request));
+			SessionManagement.getPassword(request),Flager.isFlag());
 	fetcher.commonExpenses = expenses;
 	%>
 
